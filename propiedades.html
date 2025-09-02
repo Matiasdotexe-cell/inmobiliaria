@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Machiatsu</title>
+    <link rel="icon" type="image/x-icon" href="assets/descarga.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+  </head>
+  <body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+      <div class="container px-5">
+        <a class="navbar-brand" href="index.html">Inicio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarResponsive"
+          aria-controls="navbarResponsive"
+          aria-expanded="false"
+          aria-label="Toggle navigation"></button>
+         <div id="nav-login">
+            <div class="d-block" id="div-login">
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  placeholder="Usuario"
+                  aria-label="usuario"
+                  name="usuario"
+                  id="usuario"
+                />
+                <input
+                  class="form-control me-2"
+                  type="text"
+                  placeholder="Contraseña"
+                  aria-label="password"
+                  name="password"
+                  id="password"
+                />
+
+                <button class="btn btn-outline-success" type="submit">
+                  Login
+                </button>
+              </form>
+            </div>
+            <div class="d-none" id="div-logout">
+              <span id="texto-logueado"></span>
+              <button class="btn btn-outline-primary" id="btn-logout">
+                Cerrar sesión
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Header-->
+    <header class="masthead text-center text-white">
+      <div class="masthead-content">
+        <div class="container px-5">
+          <h1 class="masthead-heading mb-0">Inmobiliaria "La Finca"</h1>
+          <h2 class="masthead-subheading mb-0">"Propiedades v10"</h2>
+          <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll"
+            >Ver más</a
+          >
+        </div>
+      </div>
+      <div class="bg-circle-1 bg-circle"></div>
+      <div class="bg-circle-2 bg-circle"></div>
+      <div class="bg-circle-3 bg-circle"></div>
+      <div class="bg-circle-4 bg-circle"></div>
+    </header>
+     <!-- Mensaje de alerta -->
+    <div id="alerta"></div>
+
+    <main class="container">
+      <!-- Button trigger modal-->
+      <button
+        type="button"
+        id="btnNuevo"
+        class="btn btn-primary"
+        data-bs-target="#formularioModal"
+      >
+        Nuevo articulo
+      </button>
+
+      <!-- Botons de filtro-->
+      <ul class="nav nav-pills" id="filtros">
+        <li class="nav-item"><button class="nav-link" active>Todos</button></li>
+        <li class="nav-item"><button class="nav-link">Propiedades</button></li>
+        <li class="nav-item"><button class="nav-link">Personas</button></li>
+        <li class="nav-item"><button class="nav-link">Recibos</button></li>
+        <li class="nav-item"><button class="nav-link">detalle de Recibos</button></li>
+        <li class="nav-item"><button class="nav-link">Usuarios</button></li>
+      </ul>
+      <section class="row" id="listado"></section>
+      <!-- Modal -->
+    <div
+      class="modal fade"
+      id="formularioModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <form id="formulario" enctype="multipart/form-data">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal- fs-5" id="exampleModalLabel">Propiedad</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid" id="modalContent">
+                <div class="row">
+                  <div class="col-md-5">
+                    <img
+                      src="./assets/img/nodisponible.png"
+                      alt="No disponible"
+                      class="img-thumbnail"
+                      id="frmimagen0"
+                    />
+                    <div class="form-floating mg-3">
+                      <input
+                        type="file"
+                        name="foto"
+                        id="foto"
+                        class="form-control"
+                        placeholder="Seleccione una imagen"
+                      />
+                      <label for="foto">Foto</label>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="tipo"
+                          id="tipo"
+                          class="form-control"
+                          placeholder="Tipo"></textarea>
+                        <label for="tipo">Tipo</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="nombre"
+                          id="nombre"
+                          class="form-control"
+                          placeholder="Nombre"></textarea>
+                        <label for="nombre">Nombre</label>
+                      </div>
+                      <div class="form-floating mb-3"></div>
+                      <textarea
+                        type="text"
+                        name="observaciones"
+                        id="observaciones"
+                        class="form-control"
+                        placeholder="Observaciones"></textarea>
+                      <label for="observaciones">Observaciones</label>
+                    </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="departamento"
+                          id="departamento"
+                          class="form-control"
+                          placeholder="Departamento"></textarea>
+                        <label for="departamento">Departamento</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="id"
+                          id="id"
+                          class="form-control"
+                          placeholder="ID"></textarea>
+                        <label for="id">id</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="direccion"
+                          id="direccion"
+                          class="form-control"
+                          placeholder="Dirección"></textarea>
+                        <label for="direccion">Dirección</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="piso"
+                          id="piso"
+                          class="form-control"
+                          placeholder="Piso"></textarea>
+                        <label for="piso">Piso</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="codpos"
+                          id="codpos"
+                          class="form-control"
+                          placeholder="Codpos"></textarea>
+                        <label for="codpos">Codpos</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="localidad"
+                          id="localidad"
+                          class="form-control"
+                          placeholder="Localidad"></textarea>
+                        <label for="localidad">Localidad</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="provincia"
+                          id="provincia"
+                          class="form-control"
+                          placeholder="Provincia"></textarea>
+                        <label for="provincia">Provincia</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="propietario_id"
+                          id="propietario_id"
+                          class="form-control"
+                          placeholder="Propietario_id"></textarea>
+                        <label for="propietario_id">Propietario_id</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <textarea
+                          type="text"
+                          name="inquilino_id"
+                          id="inquilino_id"
+                          class="form-control"
+                          placeholder="Inquilino_id"></textarea>
+                        <label for="inquilino_id">Inquilino_id</label>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              lass="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+      <section>
+          Inmobiliaria "la Finca" - Todos los derechos reservados - 2025
+        </p>
+      </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script type="module" src="./controlador/lista-propiedades.js"></script>
+  </body>
+</html>
